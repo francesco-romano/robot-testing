@@ -40,14 +40,15 @@ before_script:
   - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo make install; fi
   - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo ldconfig; fi
   - if [ "$TRAVIS_OS_NAME" == "linux" ]; then cd ../..; fi
-  
+
+script:
+  - pwd
+  - ls
   - cd robot-testing
   # configure robot-testing framework
   - mkdir build 
   - cd build 
   - cmake -DCMAKE_BUILD_TYPE=${TRAVIS_BUILD_TYPE} -DENABLE_LUA_PLUGIN:BOOL=ON -DENABLE_PYTHON_PLUGIN:BOOL=ON -DENABLE_RUBY_PLUGIN:BOOL=ON -DENABLE_WEB_LISTENER:BOOL=ON -DENABLE_MIDDLEWARE_PLUGINS:BOOL=ON ..
-  
-script: 
   - make
   # test install/uninstall
   - ctest --output-on-failure --build . -C ${TRAVIS_BUILD_TYPE}
