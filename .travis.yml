@@ -39,12 +39,11 @@ before_script:
   - if [ "$TRAVIS_OS_NAME" == "linux" ]; then make; fi
   - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo make install; fi
   - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo ldconfig; fi
-  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then cd ../..; fi
+  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then cd ../../robot-testing; fi
 
 script:
   - pwd
   - ls
-  - cd robot-testing
   # configure robot-testing framework
   - mkdir build 
   - cd build 
