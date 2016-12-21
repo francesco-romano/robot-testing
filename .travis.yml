@@ -29,17 +29,17 @@ install:
   - python --version 
   
 before_script:
-  - if [ "$TRAVIS_OS_NAME" == "linux" ]; cd ..; fi
+  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then cd ..; fi
   # install yarp
-  - if [ "$TRAVIS_OS_NAME" == "linux" ]; git clone https://github.com/robotology/yarp; fi
-  - if [ "$TRAVIS_OS_NAME" == "linux" ]; cd yarp; fi
-  - if [ "$TRAVIS_OS_NAME" == "linux" ]; mkdir build; fi
-  - if [ "$TRAVIS_OS_NAME" == "linux" ]; cd build; fi
-  - if [ "$TRAVIS_OS_NAME" == "linux" ]; cmake -DCREATE_LIB_MATH:BOOL=ON -DCREATE_SHARED_LIBRARY:BOOL=ON -DCMAKE_BUILD_TYPE=${TRAVIS_BUILD_TYPE}  ..; fi
-  - if [ "$TRAVIS_OS_NAME" == "linux" ]; make; fi
-  - if [ "$TRAVIS_OS_NAME" == "linux" ]; sudo make install; fi
-  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo ldconfig; fi
-  - if [ "$TRAVIS_OS_NAME" == "linux" ]; cd ../..; fi
+  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then git clone https://github.com/robotology/yarp; fi
+  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then cd yarp; fi
+  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then mkdir build; fi
+  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then cd build; fi
+  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then cmake -DCREATE_LIB_MATH:BOOL=ON -DCREATE_SHARED_LIBRARY:BOOL=ON -DCMAKE_BUILD_TYPE=${TRAVIS_BUILD_TYPE}  ..; fi
+  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then make; fi
+  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo make install; fi
+  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then then sudo ldconfig; fi
+  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then cd ../..; fi
   
   - cd robot-testing
   # configure robot-testing framework
